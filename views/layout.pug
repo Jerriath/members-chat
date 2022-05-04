@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        title= title
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(http-equiv="Content-Language" content="en")
+        link(rel="stylesheet" href="/stylesheets/reset.css")
+        link(rel="stylesheet" href="/stylesheets/styles.css")
+        link(rel="icon" type="image/favicon" href="/images/favicon.ico")
+    body
+        header.site-header
+            .header-content 
+                h1
+                    a(href="/")
+                        span Members Only
+                if (user)
+                    ul 
+                        li 
+                            a(href="") 
+                        li 
+                            a(href="") 
+                        li 
+                            a(href="") 
+                else   
+                    ul 
+                        li 
+                            a(href="/log-in") Log In
+                        li 
+                            a(href="/sign-up") Sign Up
+        block content

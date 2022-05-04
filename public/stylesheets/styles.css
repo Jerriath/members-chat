@@ -1,0 +1,32 @@
+/* ---------- Table of Contents ----------
+
+    I.   Header Styles
+    II.  
+
+   ---------- Table of Contents ---------- */
+
+
+/* ----- Header Styles ----- */
+.site-header {
+    background-color: #2e3532;
+    width: 100vw;
+    height: 2rem;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header-content ul {
+    display: flex;
+
+}
+
+.header-content a {
+    color: #caffd0;
+    padding: 0 1rem;
+}
