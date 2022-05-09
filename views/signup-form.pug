@@ -1,0 +1,16 @@
+extends layout 
+
+block content
+main 
+    section 
+        form(action="" method="POST") 
+            fieldset   
+                legend Username: 
+                input(type="text" required name="username")
+            fieldset 
+                legend Password: 
+                input(type="password" required name="password")
+            fieldset 
+                legend Confirm Password: 
+                input(type="password" required name="confirmation")
+            button.submit(type="submit") Submit 

@@ -8,12 +8,13 @@ const { body, validationResults } = require("express-validator");
 
 
 //Exporting controller functions
-exports.message_list = (req, res, next) => {
+exports.index = (req, res, next) => {
 
     Message.find({}).exec( (err, messages) => {
         if(err) return next(err);
         res.render("index", {
-            messages: messages
+            messages: messages,
+            title: "Member's Chat"
         })
     })
 
