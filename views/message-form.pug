@@ -1,0 +1,18 @@
+extends layout 
+
+block content
+    main 
+        form(action="" method="POST") 
+            h1 Message Form
+            fieldset   
+                legend Title: 
+                input(type="text" required name="title")
+            fieldset 
+                legend Message: 
+                textarea(required name="message")
+            button.submit(type="submit") Post
+        section
+            if (errors) 
+                each err in errors 
+                    li= err.msg
+                

@@ -6,12 +6,19 @@ var router = express.Router();
 //Importing controller modules
 const message_controller = require("../controllers/messageController");
 const user_controller = require("../controllers/userController");
+const message = require('../models/message');
 
 
 // ----- MESSAGE ROUTES ----- //
 
-// GET home page.
+// GET request for home page.
 router.get('/', message_controller.index);
+
+//GET request for creating message
+router.get("/create-message", message_controller.create_message_get);
+
+//POST request for creating message
+router.post("/create-message", message_controller.create_message_post)
 
 
 // ----- USER ROUTES ----- //
