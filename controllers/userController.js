@@ -75,7 +75,8 @@ exports.user_login_post = passport.authenticate("local", {
 });
 
 exports.user_logout_get = (req, res) => {
-    res.send("NOT IMPLEMENTED YET");
+    req.logout();
+    res.redirect("/");
 }
 
 exports.user_member_get = (req, res) => {
