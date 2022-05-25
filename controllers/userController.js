@@ -9,7 +9,7 @@ const bcrypt = require("bcryptjs/dist/bcrypt");
 
 
 //Exporting controller functions
-exports.user_create_get = (req, res, next) => {
+exports.user_create_get = (req, res) => {
     res.render("signup-form", { title: "Sign up to me a member!" })
 }
 
@@ -63,6 +63,30 @@ exports.user_create_post = [
     }
 ]
 
-exports.user_login_get = (req, res, next) => {
+exports.user_login_get = (req, res) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_login_post = (req, res, next) => {
+    res.send("NOT IMPLETMENTED YET");
+}
+
+exports.user_logout_get = (req, res) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_member_get = (req, res) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_member_post = (req, res, next) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_admin_get = (req, res) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_admin_post = (req, res, next) => {
     res.send("NOT IMPLEMENTED YET");
 }
