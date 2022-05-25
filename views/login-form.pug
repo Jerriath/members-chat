@@ -1,0 +1,14 @@
+extends layout 
+
+block content
+	main 
+		form(action="" method="POST") 
+			h1 Signup Form
+			fieldset   
+				legend Username: 
+				input(type="text" required name="username")
+			fieldset 
+				legend Password: 
+				input(type="password" required name="password")
+
+			button.submit(type="submit") Log In 

@@ -6,7 +6,7 @@ const User = require("../models/user");
 const mongoose = require("mongoose");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs/dist/bcrypt");
-const { redirect } = require("express/lib/response");
+const passport = require("passport");
 
 
 //Exporting controller functions
@@ -66,15 +66,17 @@ exports.user_create_post = [
 ]
 
 exports.user_login_get = (req, res) => {
-    res.send("NOT IMPLEMENTED YET");
+    res.render("login-form", { title: "Palette Pal Log-in" })
 }
 
-exports.user_login_post = (req, res, next) => {
-    res.send("NOT IMPLETMENTED YET");
-}
+exports.user_login_post = passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/log-in"
+});
 
 exports.user_logout_get = (req, res) => {
-    res.send("NOT IMPLEMENTED YET");
+    req.logout();
+    res.redirect("/");
 }
 
 exports.user_member_get = (req, res) => {
