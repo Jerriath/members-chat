@@ -2,6 +2,7 @@ extends layout
 
 block content
     main 
-        section
+        each message in messages 
+            section(class=message.user.palette + "-message")
             
     include footer.pug

@@ -10,7 +10,7 @@ const { body, validationResult } = require("express-validator");
 //Exporting controller functions
 exports.index = (req, res, next) => {
 
-    Message.find({}).exec( (err, messages) => {
+    Message.find({}).populate("user").sort({ date: -1 }).exec( (err, messages) => {
         if(err) return next(err);
         res.render("index", {
             messages: messages,

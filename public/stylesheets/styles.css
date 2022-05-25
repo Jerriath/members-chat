@@ -48,7 +48,6 @@ main {
 section {
     width: 800px;
     margin-bottom: 3rem;
-    background-color: #acbed8;
     padding: 1.5rem;
     border-radius: 20px;
     box-shadow: 3px 3px 5px black;
@@ -59,19 +58,19 @@ section {
 /* ----- Color Palettes ----- */
 /* Palette classes for styling messages */
 .lilac-message {
-
+    background-color: #d999f0;
 }
 
 .cyan-message {
-
+    background-color: #01baef;
 }
 
 .plum-message {
-
+    background-color: #66101f;
 }
 
 .emerald-message {
-
+    background-color: #0cce6b;
 }
 
 
