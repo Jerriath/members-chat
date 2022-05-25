@@ -4,13 +4,14 @@ const User = require("../models/user");
 
 //Importing necessary modules
 const mongoose = require("mongoose");
-const { body, validationResults } = require("express-validator");
+const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs/dist/bcrypt");
+const { redirect } = require("express/lib/response");
 
 
 //Exporting controller functions
 exports.user_create_get = (req, res) => {
-    res.render("signup-form", { title: "Sign up to me a member!" })
+    res.render("signup-form", { title: "Sign up to be a Palette Pal!" })
 }
 
 exports.user_create_post = [
@@ -36,7 +37,7 @@ exports.user_create_post = [
         }),
 
     async (req, res, next) => {
-        const errors = validationResults(req);
+        const errors = validationResult(req);
         if (!errors.isEmpty()) {
             res.render("signup-form", { title: "Sign up to be a member!", error: "Password must match confirmation."})
         }
@@ -46,15 +47,16 @@ exports.user_create_post = [
             if (userExists > 0) {
                 res.render("signup-form", { title: "Sign up to be a member!", error: "User already exists" });
             }
-            bcrypt.hash(reql.body.password, 10, (err, hashedPass) => {
+            bcrypt.hash(req.body.password, 10, (err, hashedPass) => {
                 if (err) return next(err);
                 const user = new User({
                     username: req.body.username,
                     password: hashedPass,
                     member: false,
                     admin: false,
-                    pallete: req.body.palette// Need to set up classes to represent color palettes
-                });
+                    palette: req.body.palette// Need to set up classes to represent color palettes
+                })
+                    .save( error => error ? next(error) : res.redirect("/"));
             })
         }
         catch (error) {
