@@ -82,12 +82,15 @@ form {
     align-items: center;
     justify-content: space-around;
     min-width: 300px;
-    min-height: 400px;
     max-width: 50%;
     background-color: #d0f0c0;
     padding: 50px;
     border-radius: 20px;
     margin: 4rem 0;
+}
+
+fieldset {
+    margin: 1rem 0;
 }
 
 .palette-container {
@@ -102,7 +105,7 @@ form {
 
 /* Show which palette is selected by adding border around the selected palette */
 .palette-container input:checked + .palette {
-    border: 5px solid black;
+    border: 5px solid #2c4251;
 }
 
 /* Classes for radio buttons */
