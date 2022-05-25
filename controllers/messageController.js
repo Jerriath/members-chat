@@ -14,7 +14,7 @@ exports.index = (req, res, next) => {
         if(err) return next(err);
         res.render("index", {
             messages: messages,
-            title: "Member's Chat"
+            title: "Palette Pals"
         })
     })
 

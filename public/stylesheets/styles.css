@@ -2,6 +2,8 @@
 
     I.   Header Styles
     II.  Main Styles
+    III. Color Palettes (For messages on homepage)
+    IV.  Signup Styles
 
    ---------- Table of Contents ---------- */
 
@@ -37,8 +39,9 @@ main {
     display: flex;
     flex-direction: column;
     max-width: 100%;
+    min-height: 100vh;
     background-color: #503d3f;
-    padding-top: 3rem;
+    padding: 3rem 0;
     align-items: center;
 }
 
@@ -50,4 +53,82 @@ section {
     border-radius: 20px;
     box-shadow: 3px 3px 5px black;
     display: flex;
+}
+
+
+/* ----- Color Palettes ----- */
+/* Palette classes for styling messages */
+.lilac-message {
+
+}
+
+.cyan-message {
+
+}
+
+.plum-message {
+
+}
+
+.emerald-message {
+
+}
+
+
+/* ----- Signup Styles ----- */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 300px;
+    min-height: 400px;
+    max-width: 50%;
+    background-color: #d0f0c0;
+    padding: 50px;
+    border-radius: 20px;
+    margin: 4rem 0;
+}
+
+.palette-container {
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.palette-container input {
+    display: none;
+}
+
+/* Show which palette is selected by adding border around the selected palette */
+.palette-container input:checked + .palette {
+    border: 5px solid black;
+}
+
+/* Classes for radio buttons */
+.palette {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    border: 5px solid rgba(255, 255, 255, 0);
+    background-position: bottom;
+    background-size: cover;
+    cursor: pointer;
+    margin: 0 1em;
+}
+
+.lilac {
+    background-color: #d999f0;
+}
+
+.cyan {
+    background-color: #01baef;
+}
+
+.plum {
+    background-color: #66101f;
+}
+
+.emerald {
+    background-color: #0cce6b;
 }

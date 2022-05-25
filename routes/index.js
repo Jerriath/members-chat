@@ -20,7 +20,7 @@ router.get('/', message_controller.index);
 router.get("/sign-up", user_controller.user_create_get);
 
 // POST request for creating user
-router.get("/sign-up", user_controller.user_create_post)
+router.get("/sign-up", user_controller.user_create_post);
 
 
 //Exporting index router

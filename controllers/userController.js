@@ -5,6 +5,7 @@ const User = require("../models/user");
 //Importing necessary modules
 const mongoose = require("mongoose");
 const { body, validationResults } = require("express-validator");
+const bcrypt = require("bcryptjs/dist/bcrypt");
 
 
 //Exporting controller functions
@@ -37,7 +38,31 @@ exports.user_create_post = [
     async (req, res, next) => {
         const errors = validationResults(req);
         if (!errors.isEmpty()) {
-            return next(errors);
+            res.render("signup-form", { title: "Sign up to be a member!", error: "Password must match confirmation."})
+        }
+
+        try {
+            const userExists = await User.find({ username: req.body.username });
+            if (userExists > 0) {
+                res.render("signup-form", { title: "Sign up to be a member!", error: "User already exists" });
+            }
+            bcrypt.hash(reql.body.password, 10, (err, hashedPass) => {
+                if (err) return next(err);
+                const user = new User({
+                    username: req.body.username,
+                    password: hashedPass,
+                    member: false,
+                    admin: false,
+                    pallete: req.body.palette// Need to set up classes to represent color palettes
+                });
+            })
+        }
+        catch (error) {
+            return next(error);
         }
     }
 ]
+
+exports.user_login_get = (req, res, next) => {
+    res.send("NOT IMPLEMENTED YET");
+}
