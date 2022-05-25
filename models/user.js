@@ -7,7 +7,7 @@ const UserSchema = new Schema(
         password: { type: String, required: true },
         member: { type: Boolean, required: true },
         admin: { type: Boolean, required: true },
-        profpic: { type: String, required: true }
+        palette: { type: String, required: true }
     }
 );
 

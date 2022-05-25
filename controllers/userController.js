@@ -4,12 +4,14 @@ const User = require("../models/user");
 
 //Importing necessary modules
 const mongoose = require("mongoose");
-const { body, validationResults } = require("express-validator");
+const { body, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs/dist/bcrypt");
+const { redirect } = require("express/lib/response");
 
 
 //Exporting controller functions
-exports.user_create_get = (req, res, next) => {
-    res.render("signup-form", { title: "Sign up to me a member!" })
+exports.user_create_get = (req, res) => {
+    res.render("signup-form", { title: "Sign up to be a Palette Pal!" })
 }
 
 exports.user_create_post = [
@@ -35,9 +37,58 @@ exports.user_create_post = [
         }),
 
     async (req, res, next) => {
-        const errors = validationResults(req);
+        const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return next(errors);
+            res.render("signup-form", { title: "Sign up to be a member!", error: "Password must match confirmation."})
+        }
+
+        try {
+            const userExists = await User.find({ username: req.body.username });
+            if (userExists > 0) {
+                res.render("signup-form", { title: "Sign up to be a member!", error: "User already exists" });
+            }
+            bcrypt.hash(req.body.password, 10, (err, hashedPass) => {
+                if (err) return next(err);
+                const user = new User({
+                    username: req.body.username,
+                    password: hashedPass,
+                    member: false,
+                    admin: false,
+                    palette: req.body.palette// Need to set up classes to represent color palettes
+                })
+                    .save( error => error ? next(error) : res.redirect("/"));
+            })
+        }
+        catch (error) {
+            return next(error);
         }
     }
 ]
+
+exports.user_login_get = (req, res) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_login_post = (req, res, next) => {
+    res.send("NOT IMPLETMENTED YET");
+}
+
+exports.user_logout_get = (req, res) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_member_get = (req, res) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_member_post = (req, res, next) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_admin_get = (req, res) => {
+    res.send("NOT IMPLEMENTED YET");
+}
+
+exports.user_admin_post = (req, res, next) => {
+    res.send("NOT IMPLEMENTED YET");
+}
