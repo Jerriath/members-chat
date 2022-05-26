@@ -5,6 +5,7 @@ const Message = require("../models/message");
 //Importing necessary modules
 const mongoose = require("mongoose");
 const { body, validationResult } = require("express-validator");
+const he = require("he");
 
 
 //Exporting controller functions
@@ -12,6 +13,9 @@ exports.index = (req, res, next) => {
 
     Message.find({}).populate("user").sort({ date: -1 }).exec( (err, messages) => {
         if(err) return next(err);
+        for (i=0; i < messages.length; i++) {
+            messages[i].message = he.decode(messages[i].message);
+        }
         res.render("index", {
             messages: messages,
             title: "Palette Pals",
