@@ -4,18 +4,18 @@ block content
     main 
         each message in messages 
             section(class=message.user.palette + "-message")
-                h1= message.title 
-                p= message.message
+                h1.main-font= message.title 
+                p.sub-font= message.message
                 .message-footer
                     if (user)
                         if (user.member || user.admin)
-                            p= message.user.username 
-                            p= message.date.toLocaleDateString('en-us', { year:"numeric", month:"numeric", day:"numeric"}) 
+                            p.sub-font= message.user.username 
+                            p.sub-font= message.date.toLocaleDateString('en-us', { year:"numeric", month:"numeric", day:"numeric"}) 
                         else 
-                            p Unknown 
-                            p ??/??/????
+                            p.sub-font Unknown 
+                            p.sub-font ??/??/????
                     else 
-                        p Unknown 
-                        p ??/??/????
+                        p.sub-font Unknown 
+                        p.sub-font ??/??/????
             
     include footer.pug

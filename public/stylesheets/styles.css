@@ -4,13 +4,14 @@
     II.  Main Styles
     III. Color Palettes (For messages on homepage)
     IV.  Signup Styles
+    V.   Font Styles
 
    ---------- Table of Contents ---------- */
 
 
 /* ----- Header Styles ----- */
 .site-header {
-    background-color: #2c4251;
+    background-color: #4B5358;
     width: 100vw;
     height: 3rem;
     text-align: center;
@@ -23,9 +24,38 @@
     height: 100%;
 }
 
+.header-content h1 a {
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.header-content img:hover {
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    animation: rotate-btn 1.5s ease-in-out 3;
+    -webkit-animation: rotate-btn 1.5s ease-in-out infinite;
+    transition: all 0.5s linear;
+}
+
+@keyframes rotate-btn {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.header-content img {
+    height: 30px;
+    width: 30px;
+    transition: all 0.5s linear;
+}
+
 .header-content ul {
     display: flex;
-
 }
 
 .header-content a {
@@ -40,19 +70,52 @@ main {
     flex-direction: column;
     max-width: 100%;
     min-height: 100vh;
-    background-color: #503d3f;
+    background: linear-gradient(to right, #565970, #959dd4, #959dd4, #959dd4, #565970);
     padding: 3rem 0;
     align-items: center;
 }
 
 section {
-    width: 800px;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
     margin-bottom: 3rem;
-    padding: 1.5rem;
+    padding: 0 1.5rem;
+    padding-top: 1rem;
     border-radius: 20px;
     box-shadow: 3px 3px 5px black;
     display: flex;
     flex-direction: column;
+    transition: all 0.5s ease-in-out;
+}
+
+section:hover {
+    width: 650px;
+    padding: 0 2rem;
+    padding-top: 1.5rem;
+    box-shadow: 5px 5px 7px black;
+}
+
+section:hover .message-footer {
+    margin-top: 3rem;
+}
+
+section h1 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 0.5rem;
+}
+
+section p {
+    padding: 0.75rem 0;
+
+}
+
+.message-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    transition: all 0.5s ease-in-out;
 }
 
 
@@ -62,16 +125,56 @@ section {
     background-color: #d999f0;
 }
 
+.lilac-message h1 {
+    border-bottom: 2px solid #A1E887;
+    color: #5a8f6d;
+}
+
+.lilac-message .message-footer {
+    border-top: 2px solid #A1E887;
+    color: #5a8f6d;
+}
+
 .cyan-message {
     background-color: #01baef;
+}
+
+.cyan-message h1 {
+    border-bottom: 2px solid #A1E887;
+    color: #FFCAB1;
+}
+
+.cyan-message .message-footer {
+    border-top: 2px solid #A1E887;
+    color: #FFCAB1;
 }
 
 .plum-message {
     background-color: #66101f;
 }
 
+.plum-message h1 {
+    border-bottom: 2px solid #A1E887;
+    color: #5a8f6d;
+}
+
+.plum-message .message-footer {
+    border-top: 2px solid #A1E887;
+    color: #5a8f6d;
+}
+
 .emerald-message {
     background-color: #0cce6b;
+}
+
+.emerald-message h1 {
+    border-bottom: 2px solid #A1E887;
+    color: #5a8f6d;
+}
+
+.emerald-message .message-footer {
+    border-top: 2px solid #A1E887;
+    color: #5a8f6d;
 }
 
 
@@ -153,4 +256,24 @@ fieldset textarea {
 
 .emerald {
     background-color: #0cce6b;
+}
+
+
+/* ----- Font Styles ----- */
+.main-font {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.sub-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    transition: background 0.3s linear;
+    border-radius: 15px;
+}
+
+a:hover {
+    background: rgba(0, 0, 0, 0.3);
 }
