@@ -15,6 +15,16 @@
     width: 100vw;
     height: 3rem;
     text-align: center;
+    position: fixed;
+    transition: top 0.2s linear;
+}
+
+.hide {
+    top: -3rem;
+}
+
+.show {
+    top: 0;
 }
 
 .header-content {
