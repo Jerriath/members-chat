@@ -2,6 +2,22 @@ extends layout
 
 block content
     main 
-        section
+        each message in messages 
+            section(class=message.user.palette + "-message")
+                h1.main-font= message.title 
+                p.sub-font= message.message
+                .message-footer
+                    if (user)
+                        if (user.member || user.admin)
+                            p.sub-font= message.user.username 
+                            p.sub-font= message.date.toLocaleDateString('en-us', { year:"numeric", month:"numeric", day:"numeric"}) 
+                        else 
+                            p.sub-font Unknown 
+                            p.sub-font ??/??/????
+                    else 
+                        p.sub-font Unknown 
+                        p.sub-font ??/??/????
             
     include footer.pug
+
+    script(src="/javascripts/headerScript.js")

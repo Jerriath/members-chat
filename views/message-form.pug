@@ -11,8 +11,8 @@ block content
                 legend Message: 
                 textarea(required name="message")
             button.submit(type="submit") Post
-        section
-            if (errors) 
+        if (errors) 
+            section
                 each err in errors 
                     li= err.msg
                 

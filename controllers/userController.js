@@ -55,8 +55,7 @@ exports.user_create_post = [
                     member: false,
                     admin: false,
                     palette: req.body.palette// Need to set up classes to represent color palettes
-                })
-                    .save( error => error ? next(error) : res.redirect("/"));
+                }).save( error => error ? next(error) : res.redirect("/"));
             })
         }
         catch (error) {

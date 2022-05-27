@@ -7,15 +7,16 @@ html(lang="en")
         meta(http-equiv="Content-Language" content="en")
         link(rel="stylesheet" href="/stylesheets/reset.css")
         link(rel="stylesheet" href="/stylesheets/styles.css")
-        link(rel="icon" type="image/favicon" href="/images/favicon.ico")
+        link(rel="icon" type="image/favicon" href="/images/favicon.ico?v=1.1")
     body
         header.site-header
             .header-content 
                 h1
                     a(href="/")
-                        span Palette Pals
+                        img(src="images/colorwheel.png")
+                        span.main-font Palette Pals
                 if (user)
-                    ul 
+                    ul.sub-font 
                         li 
                             a(href="/create-message") Create a Message 
                         li 
@@ -25,7 +26,7 @@ html(lang="en")
                         li 
                             a(href="/log-out") Log Out
                 else   
-                    ul 
+                    ul.sub-font 
                         li 
                             a(href="/log-in") Log In
                         li 
