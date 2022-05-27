@@ -15,20 +15,43 @@ html(lang="en")
                     a(href="/")
                         img(src="images/colorwheel.png")
                         span.main-font Palette Pals
-                if (user)
+                if (!user) 
+                    ul.sub-font 
+                        li 
+                            a(href="/log-in") Log In
+                        li 
+                            a(href="/sign-up") Sign Up
+                else if (user && !user.member && !user.admin)
+                        ul.sub-font 
+                            li 
+                                a(href="/create-message") Create a Message 
+                            li 
+                                a(href="/member") Become a Member
+                            li 
+                                a(href="/admin") Become an Admin
+                            li 
+                                a(href="/log-out") Log Out
+                else if (user.member && user.admin)
+                    ul.sub-font     
+                        li 
+                            a(href="/create-message") Create a Message 
+                        li 
+                            a(href="/log-out") Log Out
+                else if (user.member)
+                    ul.sub-font 
+                        li 
+                            a(href="/create-message") Create a Message 
+                        li 
+                            a(href="/admin") Become an Admin
+                        li 
+                            a(href="/log-out") Log Out
+                else if (user.admin) 
                     ul.sub-font 
                         li 
                             a(href="/create-message") Create a Message 
                         li 
                             a(href="/member") Become a Member
                         li 
-                            a(href="/admin") Become an Admin
-                        li 
                             a(href="/log-out") Log Out
-                else   
-                    ul.sub-font 
-                        li 
-                            a(href="/log-in") Log In
-                        li 
-                            a(href="/sign-up") Sign Up
+                    
         block content

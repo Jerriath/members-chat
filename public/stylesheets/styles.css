@@ -215,6 +215,10 @@ section p {
     color: white;
 }
 
+#footer h1 {
+    margin-left: 0.5rem;
+}
+
 .github {
     height: 2rem;
     width: auto;

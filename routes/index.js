@@ -48,7 +48,7 @@ router.post("/member", user_controller.user_member_post)
 router.get("/admin", user_controller.user_admin_get);
 
 // POST request for becoming an admin 
-router.post("/admin", user_controller.user_admin_get)
+router.post("/admin", user_controller.user_admin_post)
 
 
 //Exporting index router

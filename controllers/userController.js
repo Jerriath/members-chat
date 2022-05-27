@@ -79,17 +79,61 @@ exports.user_logout_get = (req, res) => {
 }
 
 exports.user_member_get = (req, res) => {
-    res.send("NOT IMPLEMENTED YET");
+    if (!req.user) {
+        res.redirect("/log-in");
+    }
+    else if (req.user.member) {
+        res.redirect("/");
+    }
+    res.render("membership-form", { title: "Become a Member", user: req.user, status: "Member" });
 }
 
-exports.user_member_post = (req, res, next) => {
-    res.send("NOT IMPLEMENTED YET");
-}
+exports.user_member_post = [
+    body("password").trim().isLength({ min: 1 }).escape().withMessage("Password must be specified."),
+
+    async (req, res, next) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.render("membership-form", { title: "Become a Member", status: "Member", user: req.user, errors: errors });
+        }
+        else if (req.body.password !== process.env.DB_MEMBERPASS) {
+            res.render("membership-form", { title: "Become a Member", status: "Member", user: req.user, wrongPass: "Password is incorrect. Try again." });
+        }
+        else {
+            await User.findByIdAndUpdate(req.user, { member: true });
+            res.redirect("/");
+        }
+        
+    }
+]
 
 exports.user_admin_get = (req, res) => {
-    res.send("NOT IMPLEMENTED YET");
+    if (!req.user) {
+        res.redirect("/log-in");
+    }
+    else if (req.user.admin) {
+        res.redirect("/");
+    }
+    res.render("membership-form", { title: "Become an Admin", user: req.user, status: "Admin" });
 }
 
-exports.user_admin_post = (req, res, next) => {
-    res.send("NOT IMPLEMENTED YET");
-}
+exports.user_admin_post = [
+    body("password").trim().isLength({ min: 1 }).escape().withMessage("Password must be specified."),
+
+    async (req, res, next) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.render("membership-form", { title: "Become an Admin", status: "Admin", user: req.user, errors: errors });
+        }
+        else if (req.body.password !== process.env.DB_ADMINPASS) {
+            res.render("membership-form", { title: "Become an Admin", status: "Admin", user: req.user, wrongPass: "Password is incorrect. Try again." });
+        }
+        else {
+            await User.findByIdAndUpdate(req.user, { admin: true });
+            res.redirect("/");
+        }
+        
+    }
+]
