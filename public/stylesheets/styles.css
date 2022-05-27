@@ -3,8 +3,9 @@
     I.   Header Styles
     II.  Main Styles
     III. Color Palettes (For messages on homepage)
-    IV.  Signup Styles
-    V.   Font Styles
+    IV.  Footer Styles
+    V.   Signup Styles
+    VI.  Font Styles
 
    ---------- Table of Contents ---------- */
 
@@ -12,11 +13,16 @@
 /* ----- Header Styles ----- */
 .site-header {
     background-color: #4B5358;
-    width: 100vw;
+    max-width: 90vw;
+    width: 90vw;
+    margin: 0 5vw;
     height: 3rem;
     text-align: center;
     position: fixed;
     transition: top 0.2s linear;
+    top: 1rem;
+    border-radius: 1.5rem;
+    padding: 0 1rem;
 }
 
 .hide {
@@ -24,7 +30,7 @@
 }
 
 .show {
-    top: 0;
+    top: 1rem;
 }
 
 .header-content {
@@ -81,7 +87,7 @@ main {
     max-width: 100%;
     min-height: 100vh;
     background: linear-gradient(to right, #565970, #959dd4, #959dd4, #959dd4, #565970);
-    padding: 3rem 0;
+    padding: 6rem 0;
     align-items: center;
 }
 
@@ -100,7 +106,6 @@ section {
 }
 
 section:hover {
-    width: 650px;
     padding: 0 2rem;
     padding-top: 1.5rem;
     box-shadow: 5px 5px 7px black;
@@ -160,17 +165,17 @@ section p {
 }
 
 .plum-message {
-    background-color: #66101f;
+    background-color: #992c3e;
 }
 
 .plum-message h1 {
     border-bottom: 2px solid #A1E887;
-    color: #5a8f6d;
+    color: #00798C;
 }
 
 .plum-message .message-footer {
     border-top: 2px solid #A1E887;
-    color: #5a8f6d;
+    color: #00798C;
 }
 
 .emerald-message {
@@ -179,12 +184,40 @@ section p {
 
 .emerald-message h1 {
     border-bottom: 2px solid #A1E887;
-    color: #5a8f6d;
+    color: #DEE2FF;
 }
 
 .emerald-message .message-footer {
     border-top: 2px solid #A1E887;
-    color: #5a8f6d;
+    color: #DEE2FF;
+}
+
+
+/* ----- Footer Styles ----- */
+#footer {
+    background-color: rgb(37, 37, 37);
+    height: 2rem;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.anchor-sizing {
+    width: 8rem;
+    margin: 0 auto;
+}
+
+#footer a {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.github {
+    height: 2rem;
+    width: auto;
 }
 
 
