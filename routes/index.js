@@ -18,7 +18,10 @@ router.get('/', message_controller.index);
 router.get("/create-message", message_controller.create_message_get);
 
 //POST request for creating message
-router.post("/create-message", message_controller.create_message_post)
+router.post("/create-message", message_controller.create_message_post);
+
+//POST request for deleteing message
+router.post("/", message_controller.delete_message_post);
 
 
 // ----- USER ROUTES ----- //

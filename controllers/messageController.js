@@ -68,3 +68,10 @@ exports.create_message_post = [
             }
         }
 ]
+
+exports.delete_message_post = (req, res, next) => {
+    Message.findByIdAndRemove(req.body.messageId, (err) => {
+        if (err) return next(err);
+        res.redirect("/");
+    });
+}
