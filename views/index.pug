@@ -4,7 +4,12 @@ block content
     main 
         each message in messages 
             section(class=message.user.palette + "-message")
-                h1.main-font= message.title 
+                .message-header
+                    h1.main-font= message.title 
+                    if (user.admin)
+                        form(action="" method="POST")
+                            input(type="hidden" name="messageId" value=message._id)
+                            button.delete-message(type="submit") X
                 p.sub-font= message.message
                 .message-footer
                     if (user)
