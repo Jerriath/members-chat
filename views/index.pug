@@ -6,9 +6,10 @@ block content
             section(class=message.user.palette + "-message")
                 .message-header
                     h1.main-font= message.title 
-                    form(action="" method="POST")
-                        input(type="hidden" name="messageId" value=message._id)
-                        button.delete-message(type="submit") X
+                    if (user.admin)
+                        form(action="" method="POST")
+                            input(type="hidden" name="messageId" value=message._id)
+                            button.delete-message(type="submit") X
                 p.sub-font= message.message
                 .message-footer
                     if (user)
