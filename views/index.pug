@@ -6,7 +6,7 @@ block content
             section(class=message.user.palette + "-message")
                 .message-header
                     h1.main-font= message.title 
-                    if (admin)
+                    if (user)
                         if (user.admin)
                             form(action="" method="POST")
                                 input(type="hidden" name="messageId" value=message._id)
