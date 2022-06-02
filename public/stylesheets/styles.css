@@ -4,7 +4,7 @@
     II.  Main Styles
     III. Color Palettes (For messages on homepage)
     IV.  Footer Styles
-    V.   Signup Styles
+    V.   Form Styles
     VI.  Font Styles
 
    ---------- Table of Contents ---------- */
@@ -44,6 +44,7 @@
     font-size: 1.75rem;
     display: flex;
     align-items: center;
+    transition: all 0.5s linear;
 }
 
 .header-content img:hover {
@@ -225,7 +226,7 @@ section p {
 }
 
 
-/* ----- Signup Styles ----- */
+/* ----- Form Styles ----- */
 form {
     display: flex;
     flex-direction: column;
@@ -253,6 +254,16 @@ input[type=text], input[type=password] {
     width: 100%;
     font-size: 1.1rem;
     padding: 0.25rem;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s linear;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
 }
 
 fieldset textarea {
@@ -260,6 +271,30 @@ fieldset textarea {
     height: 4rem;
     font-size: 1.1rem;
     padding: 0.25rem;
+    border-radius: 10px;
+    transition: all 0.2s linear;
+    border: 0;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+fieldset textarea:focus {
+    border: none;
+    outline: none;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
+}
+
+.submit {
+    border: none;
+    background-color: rgb(222, 222, 222);
+    border-radius: 15px;
+    padding: 0.5rem 0.75rem;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.submit:hover {
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
 }
 
 .palette-container {

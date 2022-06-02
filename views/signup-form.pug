@@ -3,18 +3,18 @@ extends layout
 block content
 	main 
 		form(action="" method="POST") 
-			h1 Signup Form
+			h1.main-font Signup Form
 			fieldset   
-				legend Username: 
+				legend.sub-font Username: 
 				input(type="text" required autofocus name="username")
 			fieldset 
-				legend Password: 
+				legend.sub-font Password: 
 				input(type="password" required name="password")
 			fieldset 
-				legend Confirm Password: 
+				legend.sub-font Confirm Password: 
 				input(type="password" required name="confirmation")
 
-			legend Select a Palette:
+			legend.sub-font Select a Palette:
 			fieldset.palette-container 
 
 				input#lilac(type="radio" name="palette" value="lilac" required="true")
@@ -30,5 +30,5 @@ block content
 				label.palette.emerald(for="emerald")
 
 			button.submit(type="submit") Sign Up 
-			span Already have an Account? 
+			span.sub-font Already have an Account? 
 				a(href="/log-in") Log in

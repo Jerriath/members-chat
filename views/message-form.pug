@@ -3,12 +3,12 @@ extends layout
 block content
     main 
         form(action="" method="POST") 
-            h1 Message Form
+            h1.main-font Message Form
             fieldset   
-                legend Title: 
+                legend.sub-font Title: 
                 input(type="text" required autofocus name="title")
             fieldset 
-                legend Message: 
+                legend.sub-font Message: 
                 textarea(required name="message")
             button.submit(type="submit") Post
         if (errors) 

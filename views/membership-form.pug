@@ -3,14 +3,14 @@ extends layout
 block content
     main 
         form(action="" method="POST") 
-            h1= status + " Sign-Up Form" 
+            h1.main-font= status + " Sign-Up Form" 
             fieldset   
-                legend= status + " Password: "
+                legend.sub-font= status + " Password: "
                 input(type="password" required autofocus name="password")
             button.submit(type="submit") Post
         if (wrongPass)
             section 
-                p= wrongPass
+                p.sub-font= wrongPass
         if (errors) 
             section
                 each err in errors 

@@ -3,12 +3,12 @@ extends layout
 block content
 	main 
 		form(action="" method="POST") 
-			h1 Signup Form
+			h1.main-font Signup Form
 			fieldset   
-				legend Username: 
+				legend.sub-font Username: 
 				input(type="text" required autofocus name="username")
 			fieldset 
-				legend Password: 
+				legend.sub-font Password: 
 				input(type="password" required name="password")
 
 			button.submit(type="submit") Log In 
